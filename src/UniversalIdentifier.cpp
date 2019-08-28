@@ -289,7 +289,7 @@ Output::identify(transaction const& tx,
 
                 auto no_of_new_accounts = std::min<int>(
                                 static_cast<int>(out.subaddr_idx.major
-                                + PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR)
+                                + PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR_1)
                                 - next_subaddr_acc_id
                                 , 50);
 

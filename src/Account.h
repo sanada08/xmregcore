@@ -170,8 +170,8 @@ class PrimaryAccount : public Account
 {
 public:
 
-    static constexpr uint32_t SUBADDRESS_LOOKAHEAD_MAJOR {50};
-    static constexpr uint32_t SUBADDRESS_LOOKAHEAD_MINOR {200};
+    static constexpr uint32_t SUBADDRESS_LOOKAHEAD_MAJOR_1 {50};
+    static constexpr uint32_t SUBADDRESS_LOOKAHEAD_MINOR_1 {200};
 
     using subaddr_map_t =  std::unordered_map<
                     public_key,
@@ -244,7 +244,7 @@ public:
     void 
     populate_subaddress_indices(
             uint32_t start_acc_id = 0,
-            uint32_t last_acc_id = SUBADDRESS_LOOKAHEAD_MAJOR);
+            uint32_t last_acc_id = SUBADDRESS_LOOKAHEAD_MAJOR_1);
 
 	auto begin() { return subaddresses.begin(); }
     auto begin() const { return subaddresses.cbegin(); }

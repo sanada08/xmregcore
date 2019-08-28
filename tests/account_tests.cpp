@@ -359,7 +359,7 @@ TEST(SUBADDRESS, PopulateSubaddresses)
     EXPECT_EQ(pacc->get_subaddress_map().size(), 10'000);
 
     EXPECT_EQ(pacc->get_next_subbaddress_acc_id(), 
-              PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR);
+              PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR_1);
 	
 	for (auto const& kv: *pacc)
 	{
@@ -382,7 +382,7 @@ TEST(SUBADDRESS, ExpandSubaddresses)
     EXPECT_EQ(pacc->get_subaddress_map().size(), 10'000);
 
     EXPECT_EQ(pacc->get_next_subbaddress_acc_id(), 
-              PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR);
+              PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR_1);
 
 
     auto new_last_acc_id = pacc->get_next_subbaddress_acc_id() 
@@ -393,7 +393,7 @@ TEST(SUBADDRESS, ExpandSubaddresses)
     EXPECT_EQ(pacc->get_subaddress_map().size(), 12'000);
 
     EXPECT_EQ(pacc->get_next_subbaddress_acc_id(), 
-              PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR + 10);
+              PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR_1 + 10);
 
 }
 

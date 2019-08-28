@@ -47,8 +47,8 @@ Account::Account(network_type _nettype,
         spendkey = parse_secret_key(_spendkey);
 }
 
-constexpr uint32_t PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR;
-constexpr uint32_t PrimaryAccount::SUBADDRESS_LOOKAHEAD_MINOR;
+constexpr uint32_t PrimaryAccount::SUBADDRESS_LOOKAHEAD_MAJOR_1;
+constexpr uint32_t PrimaryAccount::SUBADDRESS_LOOKAHEAD_MINOR_1;
 
 unique_ptr<SubaddressAccount> 
 PrimaryAccount::gen_subaddress(subaddress_index idx) 
@@ -117,10 +117,10 @@ PrimaryAccount::populate_subaddress_indices(
         // first we populate for account of 0 as we 
         // skip subaddr of 0.
         auto public_keys = device.get_subaddress_spend_public_keys(
-               account_keys, 0, 1, SUBADDRESS_LOOKAHEAD_MINOR); 
+               account_keys, 0, 1, SUBADDRESS_LOOKAHEAD_MINOR_1); 
 
         for (uint32_t addr_id {1}; 
-                addr_id < SUBADDRESS_LOOKAHEAD_MINOR; 
+                addr_id < SUBADDRESS_LOOKAHEAD_MINOR_1; 
                 ++addr_id)
         {
             subaddresses.insert({public_keys[addr_id-1], 
@@ -136,10 +136,10 @@ PrimaryAccount::populate_subaddress_indices(
     {
        auto public_keys = device.get_subaddress_spend_public_keys(
                account_keys, acc_id, 0, 
-               SUBADDRESS_LOOKAHEAD_MINOR); 
+               SUBADDRESS_LOOKAHEAD_MINOR_1); 
 
         for (uint32_t addr_id {0}; 
-                addr_id < SUBADDRESS_LOOKAHEAD_MINOR; 
+                addr_id < SUBADDRESS_LOOKAHEAD_MINOR_1; 
                 ++addr_id)
         {
             subaddresses.insert({public_keys[addr_id], 
