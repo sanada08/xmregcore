@@ -22,7 +22,9 @@ namespace xmreg
  */
 MicroCore::MicroCore():      
         m_mempool(core_storage),
-        core_storage(m_mempool),
+        // core_storage(m_mempool),
+        core_storage(m_mempool, m_master_node_list, m_deregister_vote_pool),
+        m_master_node_list(core_storage),
         m_device {&hw::get_device("default")}
 {
 
